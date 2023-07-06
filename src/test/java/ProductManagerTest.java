@@ -17,7 +17,6 @@ public class ProductManagerTest {
         Product[] actual = repo.getProducts();
         Assertions.assertArrayEquals(expected, actual);
     }
-
     @Test
     public void shouldSearchBy() {
         manager.add(product1);
