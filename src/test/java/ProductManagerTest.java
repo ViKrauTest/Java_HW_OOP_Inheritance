@@ -18,12 +18,34 @@ public class ProductManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
     @Test
-    public void shouldSearchBy() {
+    public void shouldSearchByShouldFindSeveralItems() {
         manager.add(product1);
         manager.add(product2);
         manager.add(product3);
         Product[] expected = {product2, product3};
         Product[] actual = manager.searchBy("Samsung");
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+    @Test
+    public void shouldSearchByShouldFindOneItem() {
+        manager.add(product1);
+        manager.add(product2);
+        manager.add(product3);
+        Product[] expected = {product1};
+        Product[] actual = manager.searchBy("Яма");
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+    @Test
+    public void shouldSearchByShouldFindNoOneItems() {
+        manager.add(product1);
+        manager.add(product2);
+        manager.add(product3);
+        Product[] expected = {};
+        Product[] actual = manager.searchBy("Bicycle");
 
         Assertions.assertArrayEquals(expected, actual);
 
